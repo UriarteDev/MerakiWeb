@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Inventario</title>
+</head>
+<body>
+    <form th:action="@{/inventario}" th:object="${inventario}" method="post">
+        <label for="product">Product:</label>
+        <select id="product" th:field="*{product.id}">
+            <option th:each="product : ${products}" th:value="${product.id}" th:text="${product.name}"></option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" th:field="*{quantity}" required />
+
+        <button type="submit">Create Inventario</button>
+    </form>
+</body>
+</html>
